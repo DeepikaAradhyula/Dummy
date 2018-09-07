@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- <bean class="com.cg.gamescheduleappln.service.SportsServiceImpl" name="service" 
+		scope="prototype"> -->
+	<bean class="com.cg.gamescheduleappln.service.SportsServiceImpl"
+		name="service">
+		<property name="repo" ref="repo">
+		</property>
+	</bean>
+	<bean class="com.cg.gamescheduleappln.repo.SportsRepoImpl" name="repo">
+				<constructor-arg ref="maps">
+				</constructor-arg>
+	</bean>
+	
+	<util:map id="maps" key-type="java.lang.String"
+						value-type="com.cg.gamescheduleappln.Day" map-class="java.util.HashMap">
+						<entry key="Day 4" value-ref="day4"></entry>
+						<entry key="Day 5" value-ref="day5"></entry>
+						<entry key="Day 6" value-ref="day6"></entry>
+	</util:map>
+		
+	
+	<bean id="day4" class="com.cg.gamescheduleappln.bean.Day" name="day4">
+		<property name="name" value="Day 4">
+		</property>
+		<property name="games">
+		<list value-type="com.cg.gamescheduleappln.bean.Game">
+		<ref bean="game1"/>
+		<ref bean="game2"/>
+		<ref bean="game3"/>
+		</list>
+		 </property>
+	</bean>
+	
+	<bean id="game1" class="com.cg.gamescheduleappln.bean.Game" name="game1">
+	<property name="name" value="Hockey"></property>
+	</bean>
+	
+	<bean id="game2" class="com.cg.gamescheduleappln.bean.Game" name="game2">
+	<property name="name" value="Cricket"></property>
+	</bean>
+	
+	<bean id="game3" class="com.cg.gamescheduleappln.bean.Game" name="game3">
+	<property name="name" value="Tennis"></property>
+	</bean>
+	
+	
+	<bean id="day5" class="com.cg.gamescheduleappln.bean.Day" name="day5">
+		<property name="name" value="Day 5">
+		</property>
+		<property name="games">
+		<list value-type="com.cg.gamescheduleappln.bean.Game">
+		<ref bean="game4"/>
+		<ref bean="game5"/>
+		<ref bean="game6"/>
+		<ref bean="game7"/>
+		</list>
+		 </property>
+	</bean>
+	
+	<bean id="game4" class="com.cg.gamescheduleappln.bean.Game" name="game4">
+	<property name="name" value="KhoKho"></property>
+	</bean>
+	
+	<bean id="game5" class="com.cg.gamescheduleappln.bean.Game" name="game5">
+	<property name="name" value="BasketBall"></property>
+	</bean>
+	
+	<bean id="game6" class="com.cg.gamescheduleappln.bean.Game" name="game6">
+	<property name="name" value="FootBall"></property>
+	</bean>
+	
+	<bean id="game7" class="com.cg.gamescheduleappln.bean.Game" name="game7">
+	<property name="name" value="Kabadi"></property>
+	</bean>
+	
+	<bean id="day6" class="com.cg.gamescheduleappln.bean.Day" name="day6">
+		<property name="name" value="Day 6">
+		</property>
+		<property name="games">
+		<list value-type="com.cg.gamescheduleappln.bean.Game">
+		<ref bean="game8"/>
+		<ref bean="game9"/>
+		
+		</list>
+		 </property>
+	</bean>
+	
+	<bean id="game8" class="com.cg.gamescheduleappln.bean.Game" name="game8">
+	<property name="name" value="Swimming"></property>
+	</bean>
+	
+	<bean id="game9" class="com.cg.gamescheduleappln.bean.Game" name="game9">
+	<property name="name" value="ThrowBall"></property>
+	</bean>
+	
+	
+	
+</beans>
